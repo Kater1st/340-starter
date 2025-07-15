@@ -1,6 +1,309 @@
+/* Mobile-first styles */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: url('/images/site/checkerboard.png') repeat;
+  color: #222;
+}
+
+#wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  border: 6px solid #00bfff;
+  background: #fff;
+  box-shadow: 0 0 24px rgba(0,0,0,0.08);
+  padding: 0 1rem;
+}
+
+header, nav, footer {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin-left: 1rem;
+}
+
+.header-account {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #444;
+  margin-right: 1rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spread items evenly */
+  background: #222;
+  color: white;
+  width: 100%;
+}
+
+nav ul li {
+  margin: 0.5rem 0;
+  flex: 1 1 0; /* Each nav item takes equal space */
+  text-align: center;
+}
+
+nav ul li a,
+nav ul li a:visited,
+nav ul li a:focus,
+nav ul li a:hover,
+nav ul li a:active {
+  color: #fff !important;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background: #00bfff;
+  color: #222 !important;
+  border-radius: 4px;
+  outline: none;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 260px;
+  background: url('/images/vehicles/delorean.jpg') center/cover no-repeat;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.hero-text {
+  margin-left: 2rem;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  max-width: 350px;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #00bfff;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.upgrades-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.upgrades h2, .reviews h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.upgrade-list div {
+  background: #00bfff;
+  border-radius: 8px;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.upgrade-list img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-list a {
+  display: block;
+  color: #222;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.reviews ul {
+  padding-left: 1.2rem;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background: #222;
+  padding: 1rem 0;
+}
+
+/* Hide hamburger by default */
+.nav-toggle {
+  display: none;
+  background: #222; /* Black background */
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  margin: 0.5rem;
+  border-radius:
+}
+
+/* Large screens */
+@media screen and (min-width: 700px) {
+  #wrapper {
+    max-width: 900px;
+    border: 6px solid #00bfff;
+    margin: 2rem auto;
+    background: #fff;
+  }
+
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .hero-text {
+    flex: 1;
+    margin-right: 2rem;
+    text-align: left;
+  }
+
+  .hero-img {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .upgrades-reviews {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .upgrades, .reviews {
+    flex: 1;
+  }
+
+  .upgrade-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .hero {
+    min-height: 200px;
+    padding: 1rem 0.5rem;
+  }
+  .hero-text {
+    margin: 0 auto;
+    max-width: 95%;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .hero {
+    background: url('/images/vehicles/delorean-tn.jpg') center/contain no-repeat;
+    min-height: 140px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+  .header-title {
+    margin: 0 0 0.25rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  .header-account {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .upgrade-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+/* Mobile styles for hamburger menu */
+@media screen and (max-width: 345px) {
+  nav ul.nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #222;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 10;
+  }
+  nav ul.nav-menu.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  nav {
+    position: relative;
+  }
+  nav ul li {
+    margin: 0;
+    border-bottom: 1px solid #444;
+  }
+  nav ul li a {
+    padding: 1rem;
+  }
 }

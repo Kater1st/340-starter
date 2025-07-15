@@ -11,6 +11,9 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 
+// Serve static files from the "public" directory
+app.use(express.static("public"))
+
 /* ***********************
  * View Engine and Templates
  *************************/
