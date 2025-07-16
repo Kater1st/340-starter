@@ -2,7 +2,7 @@
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
-  background: url('/images/site/checkerboard.png') repeat;
+  background: url('/images/site/small_check.jpg') repeat;
   color: #222;
 }
 
@@ -13,6 +13,8 @@ body {
   background: #fff;
   box-shadow: 0 0 24px rgba(0,0,0,0.08);
   padding: 0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 header, nav, footer {
