@@ -1,47 +1,43 @@
-/* ******************************************
- * This server.js file is the primary file of the 
- * application. It is used to control the project.
- *******************************************/
-/* ***********************
- * Require Statements
- *************************/
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
+require("dotenv").config()
 const app = express()
-const static = require("./routes/static")
 
-// Serve static files from the "public" directory
+// Routes
+const staticRoutes = require("./routes/static")
+const inventoryRoutes = require("./routes/inventoryRoute")
+
+// Static assets
 app.use(express.static("public"))
 
-/* ***********************
- * View Engine and Templates
- *************************/
+// View engine
 app.set("view engine", "ejs")
 app.use(expressLayouts)
-app.set("layout", "layouts/layout") //not at views root
+app.set("layout", "layouts/layout")
 
+// Routes
+app.use(staticRoutes)
+app.use("/inv", inventoryRoutes)
 
-/* ***********************
- * Routes
- *************************/
-app.use(static)
+// Home route
+app.get("/", (req, res) => {
+  res.render("index", { title: "Home" })
+})
 
-/* ***********************
- * Local Server Information
- * Values from .env (environment) file
- *************************/
+// 404 handler
+app.use((req, res, next) => {
+  res.status(404).render("error/error", { title: "404 Not Found" })
+})
+
+// 500 handler
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).render("error/error", { title: "Server Error" })
+})
+
 const port = process.env.PORT
 const host = process.env.HOST
 
-/* ***********************
- * Log statement to confirm server operation
- *************************/
 app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
-})
-
-// Index route
-app.get("/", function (req, res) {
-  res.render("index", { title: "Home" })
+  console.log(`App listening on ${host}:${port}`)
 })
