@@ -351,3 +351,154 @@ footer {
   }
 }
 
+/* Inventory Management Navigation */
+.management-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.management-nav li {
+  margin: 0.5em 0;
+}
+
+.management-nav a {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.management-nav a:hover {
+  background-color: #0056b3;
+}
+
+/* Error List for forms */
+.error-list {
+  color: #b00020;
+  background-color: #fdd;
+  border: 1px solid #b00020;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  list-style: disc inside;
+}
+
+/* Form styling for inventory pages */
+form label {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Error list styling */
+.error-list {
+  border: 1px solid #e74c3c;
+  background-color: #fcebea;
+  color: #c0392b;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+/* Form label styling */
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Form inputs and textarea styling */
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+/* Textarea specific tweaks */
+form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Submit button styling */
+form button[type="submit"] {
+  margin-top: 1.25rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+form button[type="submit"]:hover,
+form button[type="submit"]:focus {
+  background-color: #0056b3;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  form input[type="text"],
+  form input[type="number"],
+  form select,
+  form textarea {
+    max-width: 100%;
+  }
+}
+
+
+/* Error message styling */
+.error-message {
+  color: #d9534f;  /* Bootstrap-style red */
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input.error, select.error, textarea.error {
+  border-color: #d9534f;
+  box-shadow: 0 0 5px rgba(217, 83, 79, 0.6);
+}

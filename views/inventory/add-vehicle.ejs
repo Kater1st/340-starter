@@ -1,0 +1,112 @@
+<h1><%= title %></h1>
+
+<% if (errors && errors.length > 0) { %>
+  <ul class="error-list" role="alert">
+    <% errors.forEach(error => { %>
+      <li><%= error %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<form id="addVehicleForm" action="/inv/add-vehicle" method="post" novalidate>
+  <label for="classification_id">Classification:</label>
+  <select id="classification_id" name="classification_id" required>
+    <option value="">Select classification</option>
+    <% classifications.forEach(c => { %>
+      <option value="<%= c.classification_id %>" 
+        <%= data && data.classification_id == c.classification_id ? "selected" : "" %>>
+        <%= c.classification_name %>
+      </option>
+    <% }) %>
+  </select>
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_make">Make:</label>
+  <input
+    type="text"
+    id="inv_make"
+    name="inv_make"
+    value="<%= data ? data.inv_make : '' %>"
+    required
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_model">Model:</label>
+  <input
+    type="text"
+    id="inv_model"
+    name="inv_model"
+    value="<%= data ? data.inv_model : '' %>"
+    required
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_year">Year:</label>
+  <input
+    type="number"
+    id="inv_year"
+    name="inv_year"
+    value="<%= data ? data.inv_year : '' %>"
+    required
+    min="1900"
+    max="<%= new Date().getFullYear() + 1 %>"
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_description">Description:</label>
+  <textarea id="inv_description" name="inv_description"><%= data ? data.inv_description : '' %></textarea>
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_image">Image Path:</label>
+  <input
+    type="text"
+    id="inv_image"
+    name="inv_image"
+    value="<%= data ? data.inv_image : '' %>"
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_thumbnail">Thumbnail Path:</label>
+  <input
+    type="text"
+    id="inv_thumbnail"
+    name="inv_thumbnail"
+    value="<%= data ? data.inv_thumbnail : '' %>"
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_price">Price:</label>
+  <input
+    type="number"
+    id="inv_price"
+    name="inv_price"
+    value="<%= data ? data.inv_price : '' %>"
+    required
+    min="0.01"
+    step="0.01"
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_miles">Miles:</label>
+  <input
+    type="number"
+    id="inv_miles"
+    name="inv_miles"
+    value="<%= data ? data.inv_miles : '' %>"
+    required
+    min="0"
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <label for="inv_color">Color:</label>
+  <input
+    type="text"
+    id="inv_color"
+    name="inv_color"
+    value="<%= data ? data.inv_color : '' %>"
+    required
+  >
+  <span class="error-message" style="display:none;"></span>
+
+  <button type="submit">Add Vehicle</button>
+</form>

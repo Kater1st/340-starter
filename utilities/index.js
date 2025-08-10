@@ -1,3 +1,5 @@
+const pool = require("../database") // make sure this points to your DB connection
+
 function formatPrice(price) {
   if (!price) return "N/A"
   return `$${Number(price).toLocaleString("en-US")}`
@@ -22,8 +24,22 @@ function buildVehicleDetailHTML(vehicle) {
   `
 }
 
+// Fetch all classifications from DB
+async function getClassifications() {
+  try {
+    const data = await pool.query(
+      "SELECT classification_name FROM public.classification ORDER BY classification_name"
+    )
+    return data.rows
+  } catch (err) {
+    console.error("Error fetching classifications:", err)
+    return []
+  }
+}
+
 module.exports = {
   formatPrice,
   formatMileage,
-  buildVehicleDetailHTML
+  buildVehicleDetailHTML,
+  getClassifications
 }

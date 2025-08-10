@@ -3,6 +3,9 @@ const expressLayouts = require("express-ejs-layouts")
 require("dotenv").config()
 const app = express()
 
+// Utilities
+const utilities = require("./utilities")
+
 // Routes
 const staticRoutes = require("./routes/static")
 const inventoryRoutes = require("./routes/inventoryRoute")
@@ -14,6 +17,12 @@ app.use(express.static("public"))
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "layouts/layout")
+
+// Middleware to load classifications for all views
+app.use(async (req, res, next) => {
+  res.locals.classifications = await utilities.getClassifications()
+  next()
+})
 
 // Routes
 app.use(staticRoutes)
